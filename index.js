@@ -12,3 +12,12 @@ app.use("/", routes());
 app.listen(7000, () => {
 console.log("Servidor ejecutandose en el puerto 7000")
 });
+
+app.engine(
+    "hbs",
+    exphbs({
+      defaultLayout: "main",
+      extname: ".hbs",
+    })
+  );
+  app.set("view engine", "hbs");
