@@ -6,13 +6,6 @@ const app = express();
 app.use("/", routes());
 
 
-
-//Inicializador de servidor mediante un puerto especifico
-
-app.listen(7000, () => {
-console.log("Servidor ejecutandose en el puerto 7000")
-});
-
 app.engine(
     "hbs",
     exphbs({
@@ -20,4 +13,13 @@ app.engine(
       extname: ".hbs",
     })
   );
+  
   app.set("view engine", "hbs");
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use("/", routes());
+
+//Inicializador de servidor mediante un puerto especifico
+
+app.listen(7000, () => {
+console.log("Servidor ejecutandose en el puerto 7000")
+});
